@@ -20,7 +20,7 @@ RUN git clone https://github.com/Whitecoin-org/whitecoin /node/whitecoinsource
 WORKDIR /node/whitecoinsource/src
 
 RUN wget -O /node/whitecoinsource/src/makefile-centos.unix https://raw.githubusercontent.com/Whitecoin-org/docker-whitecoin-daemon/master/centos-latest/makefile-centos.unix
-RUN makefile -f makefile-centos.unix USE_UPNP=- && strip whitecoind && mv whitecoind /node/whitecoind && rm -rf /node/whitecoinsource
+RUN make -f makefile-centos.unix USE_UPNP=- && strip whitecoind && mv whitecoind /node/whitecoind && rm -rf /node/whitecoinsource
 
 WORKDIR /node
 VOLUME ["/node/home"]

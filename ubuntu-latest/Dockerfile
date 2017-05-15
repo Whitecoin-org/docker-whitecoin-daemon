@@ -47,7 +47,7 @@ RUN git clone https://github.com/Whitecoin-org/whitecoin /node/whitecoinsource
 
 WORKDIR /node/whitecoinsource/src
 
-RUN makefile -f makefile.unix USE_UPNP=- && strip whitecoind && mv whitecoind /node/whitecoind && rm -rf /node/whitecoinsource
+RUN make -f makefile.unix USE_UPNP=- && strip whitecoind && mv whitecoind /node/whitecoind && rm -rf /node/whitecoinsource
 
 WORKDIR /node
 VOLUME ["/node/home"]
